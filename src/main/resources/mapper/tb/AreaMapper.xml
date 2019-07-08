@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjp.mybatisplus.mapper.tb.AreaMapper">
+	
+	<select id="getAll" resultType="com.yjp.mybatisplus.entity.tb.Area">
+		SELECT * FROM tb_area ${ew.customSqlSegment}
+	</select>
+	
+	<select id="selectAreaPage" resultType="com.yjp.mybatisplus.entity.tb.Area">
+		SELECT * FROM tb_area ${ew.customSqlSegment}
+		<!-- <where>
+			<if test="param.areaName!=null and param.areaName!=''">
+				area_name LIKE CONCAT ('%', #{param.areaName}, '%')
+			</if>
+		</where> -->
+	</select>
+</mapper>
