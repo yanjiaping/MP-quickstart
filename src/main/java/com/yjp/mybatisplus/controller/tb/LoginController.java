@@ -29,13 +29,13 @@ public class LoginController {
 
     @ApiOperation(value = "用户登录")
     @PostMapping("/userLogin")
-    private Result userlogin(@RequestHeader HttpHeaders headers, @RequestBody @Valid LoginParam loginParam) {
+    public Result userLogin(@RequestHeader HttpHeaders headers, @RequestBody @Valid LoginParam loginParam) {
         AuthorizedUser authorizedUser = iLoginService.userLogin(headers, loginParam);
         return Result.quickOK(authorizedUser);
     }
 
     @PostMapping("/userLogout")
-    private Result userLogout(@RequestHeader HttpHeaders headers) {
+    public Result userLogout(@RequestHeader HttpHeaders headers) {
         String success = iLoginService.userLogout(headers);
         return Result.quickOK(success);
     }
